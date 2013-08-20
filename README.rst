@@ -77,4 +77,6 @@ and pull in setting values from the `env` variable (or whatever you call it).::
     from sysenv import load
     env = load('.env')
     DEBUG = env.get('DEBUG', False, cast=bool)
-    DATABASES = {'default': dj_database_url.parse(env.get('DATABASE_URL'))}
+
+See the `docs <http://sysenv.readthedocs.org/en/latest/>`_ for
+additional usage instructions.
