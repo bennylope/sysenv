@@ -50,6 +50,7 @@ class TestEnvDict(unittest.TestCase):
         envdict = EnvDict({'DEBUG': '1'})
         self.assertEqual(True, envdict.get('DEBUG', cast=bool))
         self.assertEqual(True, envdict.get('MISSING', True, cast=bool))
+        # If the key is missing the default should not be cast
         self.assertEqual('True', envdict.get('MISSING', 'True', cast=bool))
 
     def test_cast_pop_method(self):
@@ -94,6 +95,7 @@ class TestEnvInterface(unittest.TestCase):
     def test_load_file(self):
         env = load(self.env_file)
         self.assertTrue(env.get('SYSENV_DEBUG_VALUE_', False, cast=bool))
+        self.assertEqual(0, env.get('BOOL_FALSE_VAR', 9, cast=int))
         self.assertFalse(env.get('BOOL_FALSE_VAR', True, cast=bool))
 
     def test_load_in_osenviron(self):
