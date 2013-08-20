@@ -1,6 +1,6 @@
-======
-SysEnv
-======
+=======================================
+SysEnv: the environment variable helper
+=======================================
 
 .. image:: https://badge.fury.io/py/sysenv.png
     :target: http://badge.fury.io/py/sysenv
@@ -68,11 +68,11 @@ Alternatively you can define a schema when you initialize your `EnvDict`.::
 The schema should be provided as a dictionary of key names with the cast
 identifier given as the value in the schema.
 
-Django
-------
+Using with Django
+-----------------
 
 To use SysEnv in your Django project add it to the top of your settings.py file
-and pull in setting values from the `env` variable (or whatever you call it).
+and pull in setting values from the `env` variable (or whatever you call it).::
 
     from sysenv import load
     env = load('.env')
