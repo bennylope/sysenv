@@ -96,6 +96,11 @@ class TestEnvInterface(unittest.TestCase):
         self.assertTrue(env.get('SYSENV_DEBUG_VALUE_', False, cast=bool))
         self.assertFalse(env.get('BOOL_FALSE_VAR', True, cast=bool))
 
+    def test_load_in_osenviron(self):
+        """Ensure that the new values are placed into the environment"""
+        load(self.env_file)
+        self.assertTrue('SYSENV_DEBUG_VALUE_' in os.environ)
+
     def tearDown(self):
         os.environ.pop('SYSENV_TESTING_VALUE_')
 

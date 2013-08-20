@@ -47,7 +47,7 @@ def read_file_values(env_file, fail_silently=True):
     return env_data
 
 
-def load(env_file=None, **kwargs):
+def load(env_file=None, fail_silently=True, load_globally=True, **kwargs):
     """
     Returns an instance of EnvDict after reading the system environment an
     optionally provided file.
@@ -55,5 +55,7 @@ def load(env_file=None, **kwargs):
     data = {}
     data.update(os.environ)
     if env_file:
-        data.update(read_file_values(env_file))
+        data.update(read_file_values(env_file, fail_silently))
+    if load_globally:
+        os.environ.update(data)
     return EnvDict(data, **kwargs)
