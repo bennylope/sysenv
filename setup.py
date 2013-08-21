@@ -24,7 +24,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Ben Lopatin',
     author_email='ben@wellfire.co',
-    url='https://gitthub.com/bennylope/sysenv',
+    url='https://github.com/bennylope/sysenv',
     packages=[
         'sysenv',
     ],
